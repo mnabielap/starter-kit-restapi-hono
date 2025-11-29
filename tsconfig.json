@@ -10,9 +10,14 @@
     ],
     "types": [
         "./worker-configuration.d.ts",
+        "./src/types/index.d.ts",
         "vite/client"
     ],
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "jsxImportSource": "hono/jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
 }

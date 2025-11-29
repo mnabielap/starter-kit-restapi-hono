@@ -1,0 +1,20 @@
+# .dockerignore
+
+# Ignore Node dependencies, as they will be installed inside the container.
+node_modules
+
+# Ignore npm logs
+npm-debug.log
+
+# Ignore the build results and the wrangler temporary directory
+# This will be created inside the container
+dist
+.wrangler
+
+# Ignore local .env files
+.env
+.env.*
+!/.env.docker
+
+# Ignore the Docker configuration itself
+Dockerfile

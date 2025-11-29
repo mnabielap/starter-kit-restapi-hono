@@ -6,9 +6,24 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "starter-kit-restapi-hono",
 	"compatibility_date": "2025-08-10",
+	"compatibility_flags": ["nodejs_compat"],
 	"pages_build_output_dir": "./dist",
 	"observability": {
 		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "starter-kit-restapi-hono-db",
+			"database_id": "a179feee-b71d-403b-9228-a16afdfa31d2"
+		}
+	],
+	"vars": {
+		"JWT_SECRET": "ini_adalah_jwt_secret_yang_sangat_aman_dan_panjang_sekali_untuk_development",
+		"JWT_ACCESS_EXPIRATION_MINUTES": "30",
+		"JWT_REFRESH_EXPIRATION_DAYS": "30",
+		"JWT_RESET_PASSWORD_EXPIRATION_MINUTES": "10",
+		"JWT_VERIFY_EMAIL_EXPIRATION_MINUTES": "10"
 	}
 	/**
 	 * Smart Placement

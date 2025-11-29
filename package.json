@@ -6,9 +6,15 @@
 		"build": "vite build",
 		"preview": "vite build && wrangler pages dev",
 		"deploy": "npm run build && wrangler pages deploy",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"db:schema": "wrangler d1 execute starter-kit-restapi-hono-db --file=./src/db/schema.sql --local",
+		"db:seed": "wrangler d1 execute starter-kit-restapi-hono-db --file=./src/db/seed.sql --local"
 	},
 	"dependencies": {
+		"@hono/swagger-ui": "^0.5.2",
+		"@hono/zod-openapi": "^1.1.0",
+		"@hono/zod-validator": "^0.7.2",
+		"bcrypt-ts": "^7.1.0",
 		"hono": "^4.9.0"
 	},
 	"devDependencies": {
