@@ -219,6 +219,7 @@ Run the scripts in the following order to simulate a user flow. No arguments are
 │   ├── controllers/    # Request/response logic (e.g., auth.controller.ts)
 │   ├── db/             # Database schema and initial data (schema.sql, seed.sql)
 │   ├── middlewares/    # Hono Middlewares (auth, errorHandler)
+│   ├── repositories/   # Raw database operations (SQL queries)
 │   ├── routes/         # API route definitions and OpenAPI documentation
 │   ├── schemas/        # Zod schemas for API responses (OpenAPI)
 │   ├── services/       # Core business logic (user.service.ts)
