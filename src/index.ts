@@ -29,17 +29,21 @@ app.get('/', (c) => c.redirect('/ui'));
 app.route('/v1', v1Routes);
 
 // --- OpenAPI Documentation (Swagger) ---
-app.doc('/v1/openapi.json', {
-  openapi: '3.0.0',
-  info: {
-    version: '1.0.0',
-    title: 'Hono API Starter Kit by mnabielap (https://github.com/mnabielap)',
-    description: 'A full-featured REST API starter kit built with Hono, Cloudflare D1, and Zod by mnabielap (https://github.com/mnabielap).',
-  },
-  servers: [
-    { url: 'http://localhost:5173', description: 'Localhost' },
-    { url: 'https://starter-kit-restapi-hono.pages.dev', description: 'Production' },
-  ],
+app.doc('/v1/openapi.json', (c) => {
+  const currentOrigin = new URL(c.req.url).origin;
+  return {
+    openapi: '3.0.0',
+    info: {
+      version: '1.0.0',
+      title: 'Hono API Starter Kit by mnabielap (https://github.com/mnabielap)',
+      description: 'A full-featured REST API starter kit built with Hono, Cloudflare D1, and Zod by mnabielap (https://github.com/mnabielap).',
+    },
+    servers: [
+      { url: currentOrigin, description: 'Current Host' },
+      { url: 'http://localhost:5173', description: 'Localhost (Vite)' },
+      { url: 'https://starter-kit-restapi-hono.pages.dev', description: 'Production' },
+    ],
+  };
 });
 
 app.get('/ui', swaggerUI({ url: '/v1/openapi.json' }));
